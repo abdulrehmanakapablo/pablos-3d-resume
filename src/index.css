@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Rajdhani:wght@500;600;700&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-hud: 'Rajdhani', ui-sans-serif, system-ui, sans-serif;
+  --font-scroll: 'Cinzel', ui-serif, Georgia, serif;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  overscroll-behavior: none;
+}
+
+body {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: none;
+}
+
+canvas {
+  display: block;
+  touch-action: none;
+}
+
+@layer components {
+  .glass {
+    background: rgb(8 12 20 / 0.62);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgb(255 255 255 / 0.08);
+  }
+  .parchment {
+    background: radial-gradient(ellipse at 50% 0%, #f7ecd2 0%, #ead6ac 55%, #d8bd86 100%);
+    color: #3b2414;
+    box-shadow: inset 0 0 40px rgb(110 70 20 / 0.35), 0 20px 60px rgb(0 0 0 / 0.5);
+  }
+  .scrollable {
+    overflow-y: auto;
+    touch-action: pan-y;
+    overscroll-behavior: contain;
+    -webkit-user-select: text;
+    user-select: text;
+  }
+  .btn {
+    @apply rounded-lg px-5 py-2.5 text-center font-hud text-lg font-bold uppercase tracking-wider transition active:scale-95;
+  }
+}
